@@ -1,103 +1,114 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import RoleToggle from "@/components/RoleToggle";
+import ConnectButton from "@/components/ConnectButton";
+
+export default function HomePage() {
+  const router = useRouter();
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+      {/* Header */}
+      <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm">
+                🔒
+              </span>
+            </div>
+            <h1 className="text-xl font-semibold">SecureWork</h1>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div className="flex items-center gap-4">
+            <RoleToggle />
+            <ConnectButton />
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <main className="max-w-4xl mx-auto px-4 py-16 text-center space-y-8">
+        <div className="space-y-4">
+          <Badge variant="secondary" className="text-sm px-4 py-2">
+            🚀 MVP Demo - Pagos Confidenciales con FHE
+          </Badge>
+
+          <h1 className="text-4xl md:text-6xl font-bold text-balance leading-tight">
+            Marketplace de Servicios
+            <span className="text-primary block">Confidenciales</span>
+          </h1>
+
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
+            Contrata servicios profesionales con total privacidad. Los montos
+            quedan cifrados en blockchain usando tecnología FHE.
+          </p>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
+          <Card className="border-2 hover:border-primary/20 transition-colors">
+            <CardContent className="p-6 text-center space-y-3">
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto">
+                <span className="text-2xl">🔐</span>
+              </div>
+              <h3 className="font-semibold">Pagos Confidenciales</h3>
+              <p className="text-sm text-muted-foreground">
+                Los montos quedan cifrados. Nadie puede ver cuánto pagas excepto
+                tú.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-2 hover:border-primary/20 transition-colors">
+            <CardContent className="p-6 text-center space-y-3">
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto">
+                <span className="text-2xl">🛡️</span>
+              </div>
+              <h3 className="font-semibold">Escrow Seguro</h3>
+              <p className="text-sm text-muted-foreground">
+                Seña + diferencia protegidas hasta completar el servicio.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-2 hover:border-primary/20 transition-colors">
+            <CardContent className="p-6 text-center space-y-3">
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto">
+                <span className="text-2xl">⚡</span>
+              </div>
+              <h3 className="font-semibold">Sin Intermediarios</h3>
+              <p className="text-sm text-muted-foreground">
+                Conecta directamente con proveedores verificados.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* CTA */}
+        <div className="pt-8">
+          <Button
+            onClick={() => router.push("/services")}
+            size="lg"
+            className="text-lg px-8 py-6 rounded-xl"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            Explorar Servicios
+            <span className="ml-2">→</span>
+          </Button>
+        </div>
+
+        {/* Demo Notice */}
+        <div className="pt-8 text-center">
+          <p className="text-sm text-muted-foreground">
+            🧪 <strong>Demo MVP:</strong> Datos en memoria • Montos simulados •
+            Sin blockchain real
+          </p>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
