@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata } from "next";
 import { AppProvider } from "@/context/AppContext";
 import { Suspense } from "react";
+import Web3Providers from "@/providers/Web3Providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="es">
       <body>
         <Suspense fallback={null}>
-          <AppProvider>{children}</AppProvider>
+          <Web3Providers>
+            <AppProvider>{children}</AppProvider>
+          </Web3Providers>
         </Suspense>
       </body>
     </html>
