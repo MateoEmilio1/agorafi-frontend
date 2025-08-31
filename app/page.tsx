@@ -21,7 +21,7 @@ export default function HomePage() {
                 🔒
               </span>
             </div>
-            <h1 className="text-xl font-semibold">SecureWork</h1>
+            <h1 className="text-xl font-semibold">Agorafi</h1>
           </div>
 
           <div className="flex items-center gap-4">
