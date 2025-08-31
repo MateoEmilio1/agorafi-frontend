@@ -133,7 +133,7 @@ export default function OrderPage() {
                 🔒
               </span>
             </div>
-            <h1 className="text-lg font-semibold">SecureWork</h1>
+            <h1 className="text-lg font-semibold">Agorafi</h1>
           </div>
 
           <div className="flex items-center gap-4">
@@ -431,7 +431,7 @@ export default function OrderPage() {
               </h3>
               <p className="text-green-700">
                 Los fondos han sido liberados exitosamente.
-                {isClient && " Gracias por usar SecureWork."}
+                {isClient && " Gracias por usar Agorafi."}
                 {isProvider && " Los fondos están en camino a tu wallet."}
               </p>
               <Button

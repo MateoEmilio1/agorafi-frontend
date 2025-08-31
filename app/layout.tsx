@@ -6,7 +6,7 @@ import Web3Providers from "@/providers/Web3Providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SecureWork - Marketplace de Servicios Confidenciales",
+  title: "Agorafi - Marketplace de Servicios Confidenciales",
   description:
     "Plataforma descentralizada para contratar servicios profesionales con pagos confidenciales y escrow seguro",
   generator: "v0.app",

@@ -36,7 +36,7 @@ export default function ServicesPage() {
                 🔒
               </span>
             </div>
-            <h1 className="text-lg font-semibold">SecureWork</h1>
+            <h1 className="text-lg font-semibold">Agorafi</h1>
           </div>
 
           <div className="flex items-center gap-4">
