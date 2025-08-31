@@ -104,8 +104,7 @@ export default function HomePage() {
         {/* Demo Notice */}
         <div className="pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            🧪 <strong>Demo MVP:</strong> Datos en memoria • Montos simulados •
-            Sin blockchain real
+            🧪 <strong>Demo MVP:</strong> Datos en memoria
           </p>
         </div>
       </main>
